@@ -58,3 +58,59 @@ Now the Root certificates are installed under /etc/grid-security/certificates, w
 
 You can validate it works running `voms-proxy-init` (without `--voms` yet!). Remember to point the environment
 variables X509_USER_CERT and X509_USER_KEY to your Grid certificate and key, if they are not in the default area.
+
+### Configure VOMS
+We can now create proxies, but not proxies with VO extensions. For that, we need to configure the VOMS. Luckily, this is really easy! Just need to download [our convenience vomses file](http://grid-deployment.web.cern.ch/grid-deployment/dms/dmc/vomses) into `$HOME/.voms/vomses`
+
+```shell
+mkdir -p $HOME/.voms
+wget http://grid-deployment.web.cern.ch/grid-deployment/dms/dmc/vomses -O $HOME/.voms/vomses
+wget -O $HOME/.voms/vomses
+```
+
+Now try `voms-proxy-init --voms <your-vo>`, and you are good to go!
+
+```shell
+$ voms-proxy-init --voms dteam
+Enter GRID pass phrase:
+Your identity: /DC=ch/DC=cern/OU=...
+Cannot find file or dir: /usr/local/etc/vomses
+Creating temporary proxy ..................................... Done
+Contacting  voms.hellasgrid.gr:15004 [/C=GR/O=HellasGrid/OU=hellasgrid.gr/CN=voms.hellasgrid.gr] "dteam" Done
+Creating proxy ........................................... Done
+
+Your proxy is valid until Fri Jul 31 03:34:08 2015
+Error: verify failed.
+Cannot verify AC signature!
+
+$ voms-proxy-info --all
+subject   : /DC=ch/DC=cern/OU=...
+issuer    : /DC=ch/DC=cern/OU=...
+identity  : /DC=ch/DC=cern/OU=...
+type      : proxy
+strength  : 1024 bits
+path      : /tmp/x509up_uxxx
+timeleft  : 11:59:43
+key usage : Digital Signature, Key Encipherment
+=== VO dteam extension information ===
+VO        : dteam
+subject   : /DC=ch/DC=cern/OU=...
+issuer    : /C=GR/O=HellasGrid/OU=hellasgrid.gr/CN=voms.hellasgrid.gr
+attribute : /dteam/Role=NULL/Capability=NULL
+timeleft  : 11:59:39
+uri       : voms.hellasgrid.gr:15004
+```
+
+Note that you can ignore the "Error: verify failed" message.
+
+Let's verify our new proxy with the gfal2-util that we had installed!
+
+```shell
+$ source gfal2/bin/activate
+(gfal2) $ gfal-ls gsiftp://dpmhead-rc.cern.ch/dpm/cern.ch/home
+alice
+atlas
+cms
+dteam
+lhcb
+```
