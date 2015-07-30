@@ -9,6 +9,7 @@ class Davix < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "gsoap"
   depends_on "openssl"
 
   def install
