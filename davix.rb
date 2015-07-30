@@ -11,6 +11,7 @@ class Davix < Formula
   depends_on "doxygen" => :build
   depends_on "gsoap"
   depends_on "openssl"
+  depends_on "pkg-config" => :build
 
   def install
     ENV.libcxx
