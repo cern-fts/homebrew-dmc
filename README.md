@@ -13,9 +13,20 @@ brew install srm-ifce
 gfal_srm_ifce_version
 ```
 
-# Where are gfal2-python and gfal2-util?
-They are not distributed via Homebrew, but rather using more Pythonic methods. If you want to have gfal2-python
-and/or gfal2-util in your Mac machine, just follow the next steps:
+# gfal2-python and gfal2-util
+There are two options for installing these two components. They can be either installed via Homebrew, as the rest, or
+inside a Python virtualenv.
+
+## Homebrew
+```shell
+brew install gfal2-python
+brew install gfal2-util
+```
+
+Note that there is no need to install all components manually. If you are just interested on gfal2-util, you
+can just do `brew install gfal2-util` and all the required dependencies will be downloaded, built and installed.
+
+## virtualenv
 
 ```shell
 $ sudo easy_install pip
