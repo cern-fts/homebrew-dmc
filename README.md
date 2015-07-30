@@ -2,13 +2,13 @@
 ## How do I install these formulae?
 You need first to install the [Homebrew](http://brew.sh/) tool. Then,
 
-`brew install ayllon/dmc/<formula>`
+`brew install cern-it-sdc-id/dmc/<formula>`
 
-Or `brew tap ayllon/dmc` and then `brew install <formula>`.
+Or `brew tap cern-it-sdc-id/dmc` and then `brew install <formula>`.
 
 ## Example
 ```shell
-brew tap ayllon/dmc
+brew tap cern-it-sdc-id/dmc
 brew install srm-ifce
 gfal_srm_ifce_version
 ```
