@@ -6,7 +6,7 @@ class Gfal2 < Formula
 
   depends_on "boost"
   depends_on "cmake" => :build
-  depends_on "davix"
+  depends_on "cern-it-sdc-id/dmc/davix"
   depends_on "glib"
   depends_on "globus-toolkit"
   depends_on "pkg-config" => :build
@@ -16,7 +16,7 @@ class Gfal2 < Formula
   def install
     ENV.libcxx
 
-    system "cmake", "-DSKIP_TESTS=ON", "-DPLUGIN_RFIO=OFF", "-DPLUGIN_LFC=OFF", "-DPLUGIN_DCAP=OFF", "-DPLUGIN_HTTP=OFF", ".", *std_cmake_args
+    system "cmake", "-DSKIP_TESTS=ON", "-DPLUGIN_RFIO=OFF", "-DPLUGIN_LFC=OFF", "-DPLUGIN_DCAP=OFF", "-DPLUGIN_HTTP=ON", ".", *std_cmake_args
     system "make", "install"
   end
 
