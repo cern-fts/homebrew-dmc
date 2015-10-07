@@ -11,10 +11,12 @@ class Gfal2Python < Formula
   depends_on "python"
 
   def install
+    python = Formula["python"].opt_prefix
+
     system "cmake", "-DSKIP_DOC=ON",
-        "-DPYTHON_LIBRARIES=/usr/local/opt/python/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib",
-        "-DPYTHON_INCLUDE_PATH=/usr/local/opt/python/Frameworks/Python.framework/Versions/Current/include/python2.7",
-        "-DPYTHON_EXECUTABLE=/usr/local/opt/python/Frameworks/Python.framework/Versions/Current/bin/python",
+        "-DPYTHON_LIBRARIES=#{python}/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib",
+        "-DPYTHON_INCLUDE_PATH=#{python}/Frameworks/Python.framework/Versions/Current/include/python2.7",
+        "-DPYTHON_EXECUTABLE=#{python}/Frameworks/Python.framework/Versions/Current/bin/python",
         ".", *std_cmake_args
     system "make", "install"
   end

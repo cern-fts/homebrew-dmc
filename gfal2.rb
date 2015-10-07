@@ -15,8 +15,10 @@ class Gfal2 < Formula
 
   def install
     ENV.libcxx
+    globus = Formula["globus-toolkit"].opt_prefix
+    xrootd = Formula["xrootd"].opt_prefix
 
-    system "cmake", "-DSKIP_TESTS=ON", "-DPLUGIN_RFIO=OFF", "-DPLUGIN_LFC=OFF", "-DPLUGIN_DCAP=OFF", "-DPLUGIN_HTTP=ON", ".", *std_cmake_args
+    system "cmake", "-DGLOBUS_PREFIX=#{globus}", "-DXROOTD_LOCATION=#{xrootd}", "-DSKIP_TESTS=ON", "-DPLUGIN_RFIO=OFF", "-DPLUGIN_LFC=OFF", "-DPLUGIN_DCAP=OFF", "-DPLUGIN_HTTP=ON", ".", *std_cmake_args
     system "make", "install"
   end
 

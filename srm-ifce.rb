@@ -12,8 +12,9 @@ class SrmIfce < Formula
   depends_on "pkg-config" => :build
 
   def install
-    ENV.deparallelize
-    system "cmake", ".", *std_cmake_args
+    globus = Formula["globus-toolkit"].opt_prefix
+
+    system "cmake", ".", "-DGLOBUS_PREFIX=#{globus}" , *std_cmake_args
     system "make", "install"
   end
 
