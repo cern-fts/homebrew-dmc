@@ -45,7 +45,7 @@ $ source gfal2/bin/activate
 
 ## Help! I can't connect to secure endpoints
 To connect to Grid endpoints normally a proxy is required, sometimes with the proper VO extensions.
-Additionally, these endpoints will present the client application a X509 certificate that proofs they are who
+Additionally, these endpoints will present the client application a X509 certificate that prooves they are who
 they say they are. These certificates are signed by a trusted Certification Authority, whose certificates need to be present in the client machine.
 
 So, basically, we need to fix two related issues
