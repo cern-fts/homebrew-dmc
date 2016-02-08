@@ -8,7 +8,7 @@ class CgsiGsoap < Formula
   depends_on "gsoap" => :build
   depends_on "globus-toolkit"
   depends_on "pkg-config" => :build
-  depends_on "voms"
+  depends_on "cern-it-sdc-id/dmc/voms2"
 
   def install
     globus = Formula["globus-toolkit"].opt_prefix
