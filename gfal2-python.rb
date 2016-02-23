@@ -11,14 +11,20 @@ class Gfal2Python < Formula
   depends_on "python"
 
   def install
-    python = Formula["python"].opt_prefix
+    py_exec = `/usr/bin/which python`.strip
+    py_version = `python -c "from __future__ import print_function; import sys; print('%d.%d' % sys.version_info[0:2])"`.strip
+    py_prefix = `python -c "from __future__ import print_function; import sys; print(sys.prefix)"`.strip
+    py_include = `python -c "from __future__ import print_function; import distutils.sysconfig; print(distutils.sysconfig.get_python_inc(True))"`.strip
+    py_site_packages = `python -c "from __future__ import print_function; from distutils.sysconfig import get_python_lib; print(get_python_lib(True))"`.strip
 
     system "cmake", "-DSKIP_DOC=ON",
-        "-DPYTHON_LIBRARIES=#{python}/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib",
-        "-DPYTHON_INCLUDE_PATH=#{python}/Frameworks/Python.framework/Versions/Current/include/python2.7",
-        "-DPYTHON_EXECUTABLE=#{python}/Frameworks/Python.framework/Versions/Current/bin/python",
+        "-DPYTHON_LIBRARIES=#{py_prefix}/lib/libpython#{py_version}.dylib",
+        "-DPYTHON_INCLUDE_PATH=#{py_include}",
+        "-DPYTHON_EXECUTABLE=#{py_exec}",
+        "-DPYTHON_SITE_PACKAGES=#{prefix}",
         ".", *std_cmake_args
     system "make", "install"
+    (lib/"python2.7/site-packages").install_symlink "#{prefix}/gfal2.so"
   end
 
   test do
