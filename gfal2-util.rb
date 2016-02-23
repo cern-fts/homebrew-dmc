@@ -7,7 +7,7 @@ class Gfal2Util< Formula
   depends_on "gfal2-python"
 
   def install
-    system "python", "setup.py", "install"
+    system "python", "setup.py", "install", "--prefix=#{prefix}"
   end
 
   test do
