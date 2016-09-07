@@ -3,7 +3,7 @@ class Davix < Formula
   homepage "https://dmc.web.cern.ch/projects/davix/home"
   url "https://github.com/cern-it-sdc-id/davix.git",
     :branch => "devel"
-  version "0.5.1-1"
+  version "0.6.4-1"
 
   head "https://github.com/cern-it-sdc-id/davix.git"
 
