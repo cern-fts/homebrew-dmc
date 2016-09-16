@@ -7,6 +7,7 @@ class Gfal2 < Formula
   depends_on "boost"
   depends_on "cmake" => :build
   depends_on "cern-it-sdc-id/dmc/davix"
+  depends_on "json-c"
   depends_on "glib"
   depends_on "globus-toolkit"
   depends_on "pkg-config" => :build
