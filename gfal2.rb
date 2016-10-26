@@ -10,6 +10,7 @@ class Gfal2 < Formula
   depends_on "json-c"
   depends_on "glib"
   depends_on "globus-toolkit"
+  depends_on "libssh2"
   depends_on "pkg-config" => :build
   depends_on "srm-ifce"
   depends_on "xrootd"
