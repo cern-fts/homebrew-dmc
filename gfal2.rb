@@ -2,7 +2,7 @@ class Gfal2 < Formula
   desc "Grid file access library 2"
   homepage "http://dmc.web.cern.ch/"
   url "https://gitlab.cern.ch/dmc/gfal2.git", :branch => "develop"
-  version "2.10.0"
+  version "2.15.0"
 
   depends_on "boost"
   depends_on "cmake" => :build
