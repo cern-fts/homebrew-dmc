@@ -2,7 +2,7 @@ class SrmIfce < Formula
   desc "SRM client side library"
   homepage "http://dmc.web.cern.ch/"
   url "https://gitlab.cern.ch/dmc/srm-ifce.git", :branch => "develop"
-  version "1.23.1"
+  version "1.24.3"
 
   depends_on "cgsi-gsoap"
   depends_on "cmake" => :build
