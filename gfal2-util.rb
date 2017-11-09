@@ -2,7 +2,7 @@ class Gfal2Util< Formula
   desc "Grid file access library 2, command line tools"
   homepage "http://dmc.web.cern.ch/"
   url "https://gitlab.cern.ch/dmc/gfal2-util.git", :branch => "develop"
-  version "1.3.0"
+  version "1.5.1"
 
   depends_on "gfal2-python"
 
