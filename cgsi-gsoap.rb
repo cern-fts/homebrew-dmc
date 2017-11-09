@@ -2,7 +2,7 @@ class CgsiGsoap < Formula
   desc "Client and server side library to secure gSOAP using the Globus Security Infrastructure"
   homepage "http://dmc.web.cern.ch/"
   url "https://gitlab.cern.ch/dmc/cgsi-gsoap.git", :branch => "develop"
-  version "1.3.7"
+  version "1.3.11"
 
   depends_on "cmake" => :build
   depends_on "gsoap" => :build
