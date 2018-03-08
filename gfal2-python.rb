@@ -8,7 +8,7 @@ class Gfal2Python < Formula
   depends_on "cmake" => :build
   depends_on "gfal2"
   depends_on "pkg-config" => :build
-  depends_on "python"
+  depends_on "python@2"
 
   def install
     py_exec = `/usr/bin/which python`.strip
