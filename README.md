@@ -2,9 +2,9 @@
 ## How do I install these formulae?
 You need first to install the [Homebrew](http://brew.sh/) tool. Then,
 
-`brew install cern-it-sdc-id/dmc/<formula>`
+`brew install cern-fts/dmc/<formula>`
 
-Or `brew tap cern-it-sdc-id/dmc` and then `brew install <formula>`.
+Or `brew tap cern-fts/dmc` and then `brew install <formula>`.
 
 ## Example
 ```shell
