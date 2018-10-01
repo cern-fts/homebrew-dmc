@@ -4,7 +4,7 @@ class Gfal2Python < Formula
   url "https://gitlab.cern.ch/dmc/gfal2-bindings.git", :branch => "develop"
   version "1.9.3"
 
-  depends_on "boost-python2"
+  depends_on "boost-python"
   depends_on "cmake" => :build
   depends_on "gfal2"
   depends_on "pkg-config" => :build
