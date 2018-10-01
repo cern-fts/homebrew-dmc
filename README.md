@@ -8,7 +8,7 @@ Or `brew tap cern-fts/dmc` and then `brew install <formula>`.
 
 ## Example
 ```shell
-brew tap cern-it-sdc-id/dmc
+brew tap cern-ft/dmc
 brew install srm-ifce
 gfal_srm_ifce_version
 ```
