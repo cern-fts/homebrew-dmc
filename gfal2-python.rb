@@ -2,7 +2,7 @@ class Gfal2Python < Formula
   desc "Grid file access library 2"
   homepage "http://dmc.web.cern.ch/"
   url "https://gitlab.cern.ch/dmc/gfal2-bindings.git", :branch => "develop"
-  version "1.9.3"
+  version "1.9.5"
 
   depends_on "boost-python"
   depends_on "cmake" => :build
