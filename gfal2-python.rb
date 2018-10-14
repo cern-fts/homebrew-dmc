@@ -4,7 +4,7 @@ class Gfal2Python < Formula
   url "https://gitlab.cern.ch/dmc/gfal2-bindings.git", :branch => "develop"
   version "1.9.5"
 
-  depends_on "boost-python@2.7"
+  depends_on "boost-python"
   depends_on "cmake" => :build
   depends_on "gfal2"
   depends_on "pkg-config" => :build
@@ -22,6 +22,7 @@ class Gfal2Python < Formula
         "-DPYTHON_INCLUDE_PATH=#{py_include}",
         "-DPYTHON_EXECUTABLE=#{py_exec}",
         "-DPYTHON_SITE_PACKAGES=#{prefix}",
+        "-DBOOST_LIBRARYDIR=#{py_prefix}/boost-python/1.67.0/lib",
         ".", *std_cmake_args
     system "make", "install"
     (lib/"python2.7/site-packages").install_symlink "#{prefix}/gfal2.so"
