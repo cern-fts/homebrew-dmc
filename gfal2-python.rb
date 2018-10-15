@@ -22,7 +22,7 @@ class Gfal2Python < Formula
         "-DPYTHON_INCLUDE_PATH=#{py_include}",
         "-DPYTHON_EXECUTABLE=#{py_exec}",
         "-DPYTHON_SITE_PACKAGES=#{prefix}",
-        "-DBOOST_LIBRARYDIR=#{prefix}/../../boost-python/1.67.0/lib",
+        "-DBOOST_LIBRARYDIR=/Users/jenkins/Builds/homebrew/Cellar/boost-python/1.67.0/lib",
         ".", *std_cmake_args
     system "make", "install"
     (lib/"python2.7/site-packages").install_symlink "#{prefix}/gfal2.so"
