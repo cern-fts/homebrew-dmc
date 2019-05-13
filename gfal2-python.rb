@@ -1,7 +1,7 @@
 class Gfal2Python < Formula
   desc "Grid file access library 2"
   homepage "http://dmc.web.cern.ch/"
-  url "https://gitlab.cern.ch/dmc/gfal2-bindings.git", :branch => "develop"
+  url "https://gitlab.cern.ch/dmc/gfal2-bindings.git", :branch => "f29_fixes"
   version "1.9.5"
 
   depends_on "boost-python"
@@ -22,7 +22,7 @@ class Gfal2Python < Formula
         "-DPYTHON_INCLUDE_PATH=#{py_include}",
         "-DPYTHON_EXECUTABLE=#{py_exec}",
         "-DPYTHON_SITE_PACKAGES=#{prefix}",
-        "-DBOOST_LIBRARYDIR=#{prefix}/../../boost-python/1.69.0/lib",
+        #"-DBOOST_LIBRARYDIR=#{prefix}/../../boost-python/1.69.0/lib",
         ".", *std_cmake_args
     system "make", "install"
     (lib/"python2.7/site-packages").install_symlink "#{prefix}/gfal2.so"
