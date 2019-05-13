@@ -8,7 +8,7 @@ class Gfal2Python < Formula
   depends_on "cmake" => :build
   depends_on "gfal2"
   depends_on "pkg-config" => :build
-  depends_on "python"
+  depends_on "python@2"
 
   def install
     py_exec = `/usr/bin/which python`.strip
@@ -22,7 +22,6 @@ class Gfal2Python < Formula
         "-DPYTHON_INCLUDE_PATH=#{py_include}",
         "-DPYTHON_EXECUTABLE=#{py_exec}",
         "-DPYTHON_SITE_PACKAGES=#{prefix}",
-        #"-DBOOST_LIBRARYDIR=#{prefix}/../../boost-python/1.69.0/lib",
         ".", *std_cmake_args
     system "make", "install"
     (lib/"python2.7/site-packages").install_symlink "#{prefix}/gfal2.so"
