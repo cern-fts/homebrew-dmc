@@ -3,7 +3,7 @@ class Davix < Formula
   homepage "https://dmc.web.cern.ch/projects/davix/home"
   url "https://github.com/cern-fts/davix.git",
     :branch => "master"
-  version "0.7.2-1"
+  version "0.7.5-1"
 
   head "https://github.com/cern-fts/davix.git"
 
@@ -16,12 +16,14 @@ class Davix < Formula
  
   def install
     ENV.libcxx
-
-    system "cmake", "-DENABLE_THIRD_PARTY_COPY=ON", ".", *std_cmake_args
-    system "make", "install"
+  
+    cp "release.cmake", "version.cmake"
+    mkdir "build"
+    system "cmake", "-S", "-DENABLE_THIRD_PARTY_COPY=ON", ".", "-B", "build", *std_cmake_args *std_cmake_args
+    system "make", "--directory", "build", "install"
   end
 
   test do
-    system "#{bin}/davix-get", "http://www.google.com"
+    system "#{bin}/davix-get", "https://www.google.com"
   end
 end
