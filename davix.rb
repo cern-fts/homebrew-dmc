@@ -19,7 +19,7 @@ class Davix < Formula
   
     cp "release.cmake", "version.cmake"
     mkdir "build"
-    system "cmake", "-S", "-DENABLE_THIRD_PARTY_COPY=ON", ".", "-B", "build", *std_cmake_args *std_cmake_args
+    system "cmake", "-S", "-DENABLE_THIRD_PARTY_COPY=ON", ".", "-B", "build", *std_cmake_args
     system "make", "--directory", "build", "install"
   end
 
